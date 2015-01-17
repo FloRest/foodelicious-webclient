@@ -18,7 +18,7 @@ viewModule
             });
             $scope.getComments =  function () {
                 recipesService.getComments($routeParams.id).success(function(data) {
-                    $scope.comments = data;
+                    $scope.comments = data.hits;
                     $scope.loadingComment = false;
                 });
             };
@@ -29,6 +29,12 @@ viewModule
                     data.createdBy = $scope.user;
                     $scope.comments.push(data);
                     $scope.loadingComment = false;
+                })
+            };
+
+            $scope.like = function(recipeId) {
+                recipesService.like(recipeId).success(function(data) {
+                    $scope.recipe.likes += 1;
                 })
             }
     }])

@@ -33,6 +33,14 @@ apiService
             },
             getComments: function (idRecipe) {
                 return $http.get(url+'/'+idRecipe+'/comments');
+            },
+            like: function (idRecipe) {
+                return $http.post(url+'/'+idRecipe+'/like', {}, {
+                    headers: {
+                        'X-API-user': currentUser.id,
+                        'X-API-token': currentUser.token
+                    }
+                });
             }
         };
     })

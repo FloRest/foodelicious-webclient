@@ -35,6 +35,6 @@
             </md-item-content>
         </md-item>
     </md-list>
-    <md-button aria-label="follow" class="normal-button" ng-if="profile.id != user.id" ng-click="follow(profile.id)">Follow</md-button>
-    <md-button aria-label="unfollow" class="normal-button" ng-if="profile.id != user.id" ng-click="unfollow(profile.id)">UnFollow</md-button>
+    <md-button aria-label="follow" class="normal-button md-raised md-primary" ng-if="profile.id != user.id" ng-click="follow(profile.id)" style="color: white;">Follow</md-button>
+    <md-button aria-label="unfollow" class="normal-button md-raised" ng-if="profile.id != user.id" ng-click="unfollow(profile.id)">UnFollow</md-button>
 </div>

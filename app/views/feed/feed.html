@@ -11,5 +11,21 @@
                 <blockquote>{{feedItem.comment}}</blockquote>
             </md-card>
         </div>
+
+        <div ng-if="feedItem.type == 'like'">
+            <md-card ng-click="goToRessource(feedItem.ressource_type, feedItem.ressource)">
+                <div>
+                    <a href="#/profile/{{feedItem.createdBy.id}}">{{feedItem.createdBy.name}}</a> liked <a href="#/recipe/{{feedItem.ressource}}">{{feedItem.ressource_type}}</a>
+                </div>
+            </md-card>
+        </div>
+
+        <div ng-if="feedItem.type == 'created'">
+            <md-card ng-click="goToRessource(feedItem.ressource_type, feedItem.ressource)">
+                <div>
+                    <a href="#/profile/{{feedItem.createdBy.id}}">{{feedItem.createdBy.name}}</a> created <a href="#/recipe/{{feedItem.ressource}}">{{feedItem.ressource_type}}</a>
+                </div>
+            </md-card>
+        </div>
     </div>
 </div>

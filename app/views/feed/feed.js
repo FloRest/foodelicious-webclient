@@ -7,7 +7,7 @@ viewModule
             $scope.user = authService.currentUser();
 
             usersService.getCurrentUserFeed().success(function(data){
-                $scope.feedItems = data;
+                $scope.feedItems = data.feed;
                 $scope.loading = false;
             });
 

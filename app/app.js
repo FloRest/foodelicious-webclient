@@ -33,7 +33,7 @@ controller('LayoutController', function($scope, $mdSidenav, $location, authServi
     toastService.toast('Bye '+ $scope.user.name + ' ! Hope to see you soon !');
     authService.logout();
     $location.path('/signin');
-    $mdSidenav('left').toggle();
+    $mdSidenav('left').close();
   };
   $scope.call = function(name) {
     $scope[name]();
