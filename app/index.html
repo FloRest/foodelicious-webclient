@@ -1,0 +1,103 @@
+<!DOCTYPE html ng-app="foodelicious">
+<!--[if lt IE 7]>      <html lang="en" ng-app="foodelicious" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="foodelicious" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="foodelicious" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html lang="en" ng-app="foodelicious" class="no-js"> <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>Foodelicious</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
+  <link rel="stylesheet" href="bower_components/angular-material/angular-material.css">
+  <link rel="stylesheet" href="bower_components/angular-material/themes/light-green-theme.css">
+  <link rel="stylesheet" href="bower_components/angular-material/themes/blue-grey-theme.css">
+  <link rel="stylesheet" href="bower_components/bootstrap-css-only/css/bootstrap.min.css">
+  <link rel="stylesheet" href="app.css">
+  <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
+  <script src="bower_components/underscore/underscore-min.js"></script>
+</head>
+<body>
+  <!--[if lt IE 7]>
+  <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
+  <![endif]-->
+
+  <div ng-controller="LayoutController"  md-theme="light-green" md-swipe-left="openSideNav(false)" md-swipe-right="openSideNav(true)" style="width: 100%; height: 100%">
+    <section layout="row" flex>
+    <md-sidenav component-id="left" class="md-sidenav-left" is-locked-open="$media('md')" style="height:100vh;">
+      <md-toolbar md-scroll-shrink>
+        <div class="md-toolbar-tools">
+          <span style="color:#ffffff">Menu</span>
+          <!-- fill up the space between left and right area -->
+          <span flex></span>
+        </div>
+      </md-toolbar>
+      <md-list >
+        <md-item ng-repeat="route in user.routes">
+          <md-button ng-if="!route.action" aria-label="{{route.name}}" class="md-primary nav-button" ng-click="routeTo(route.route)">
+            {{route.name}}
+          </md-button>
+          <md-button ng-if="route.action" aria-label="{{route.name}}" class="md-primary nav-button" ng-click="call(route.action)">
+            {{route.name}}
+          </md-button>
+        </md-item>
+      </md-list>
+    </md-sidenav>
+
+    <md-content flex>
+      <md-toolbar md-scroll-shrink>
+        <div class="md-toolbar-tools">
+          <md-button id="menubutton" aria-label="Menu" style="height: 50px; width:50px; color:white; font-size: 20px;" class="md-button-colored md-primary" ng-click="openLeftMenu()">
+            <span class="glyphicon glyphicon-align-justify"></span>
+          </md-button>
+          <span style="color:#ffffff">Foodelicious</span>
+          <!-- fill up the space between left and right area -->
+          <span flex></span>
+        </div>
+      </md-toolbar>
+        <div ng-view class=""></div>
+    </md-content>
+      </section>
+  </div>
+
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+
+  <!-- components angular -->
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-aria/angular-aria.js"></script>
+  <script src="bower_components/angular-animate/angular-animate.js"></script>
+  <script src="bower_components/hammerjs/hammer.js"></script>
+  <script src="bower_components/angular-material/angular-material.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/angular-resource/angular-resource.js"></script>
+  <script src="bower_components/angular-bootstrap/ui-bootstrap.min.js"></script>
+  <script src="bower_components/ngFx/dist/ngFx.js"></script>
+
+  <!-- app components -->
+  <script src="components/authentication/authentication.js"></script>
+  <!-- api components -->
+  <script src="components/apiRest/api.js"></script>
+  <script src="components/apiRest/recipes/recipes.js"></script>
+  <script src="components/apiRest/ingredients/ingredients.js"></script>
+  <script src="components/apiRest/users/users.js"></script>
+  <!---->
+  <script src="components/toast/toast.js"></script>
+  <!---->
+
+  <!-- app -->
+  <script src="app.js"></script>
+  <script src="views.js"></script>
+  <script src="views/signViews/signin.js"></script>
+  <script src="views/signViews/signup.js"></script>
+  <script src="views/profile/profile.js"></script>
+  <script src="views/feed/feed.js"></script>
+  <script src="views/recipes/recipes.js"></script>
+  <script src="views/recipes/recipe.js"></script>
+  <script src="views/recipes/recipeForm.js"></script>
+
+</body>
+</html>
